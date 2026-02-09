@@ -13,7 +13,7 @@ from ml.model import (
     train_model,
 )
 # TODO: load the cencus.csv data
-project_path = "Your path here"
+project_path = os.getcwd()
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
 data = pd.read_csv(data_path) # your code here
@@ -83,6 +83,14 @@ for col in cat_features:
     for slicevalue in sorted(test[col].unique()):
         count = test[test[col] == slicevalue].shape[0]
         p, r, fb = performance_on_categorical_slice(
+            test,             # The test DataFrame
+            col,       # The current categorical feature
+            slicevalue, # The current unique value of the categorical feature
+            cat_features, # List of categorical features
+            "salary",   # Replace with the actual name of your label column
+            encoder,   # Replace with your actual encoder
+            lb, # Replace with your actual label binarizer
+            model,   
             # your code here
             # use test, col and slicevalue as part of the input
         )

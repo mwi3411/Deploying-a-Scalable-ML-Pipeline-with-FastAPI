@@ -1,22 +1,37 @@
 import pytest
-# TODO: add necessary import
+import numpy as np
+from ml.model import train_model, compute_model_metrics  # Adjust the import based on your structure
+from sklearn.datasets import make_classification
+from sklearn.ensemble import RandomForestClassifier
 
-# TODO: implement the first test. Change the function name and input as needed
-def test_one():
-    """
-    # add description for the first test
-    """
-    # Your code here
-    pass
+def test_train_model_return_type():
+    # Sample training data
+    X_train = np.random.rand(100, 10)  # 100 samples, 10 features
+    y_train = np.random.randint(0, 2, size=100)  # Binary labels
+
+    # Train the model
+    model = train_model(X_train, y_train)
+
+    # Check that the returned model is of the expected type
+    assert isinstance(model, RandomForestClassifier), "The model should be a RandomForestClassifier."
 
 
-# TODO: implement the second test. Change the function name and input as needed
-def test_two():
-    """
-    # add description for the second test
-    """
-    # Your code here
-    pass
+def test_prediction_output_type():
+    # Sample training data
+    X_train = np.random.rand(100, 10)  # 100 samples, 10 features
+    y_train = np.random.randint(0, 2, size=100)  # Binary labels
+
+    # Train the model
+    model = train_model(X_train, y_train)
+
+    # Generate some test data
+    X_test = np.random.rand(10, 10)  # 10 samples for testing
+
+    # Get predictions
+    preds = model.predict(X_test)
+
+    # Check that the predictions are of the expected type
+    assert isinstance(preds, np.ndarray), "Predictions should be a NumPy array."
 
 
 # TODO: implement the third test. Change the function name and input as needed

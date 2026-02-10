@@ -15,9 +15,9 @@
 ## Evaluation Data
 > 20% of data used, Predict whether income exceeds $50K/yr based on census data. Also known as Adult dataset.
 ## Metrics
-> Model Trained on F1, Precision, and Recall.
+> Model Trained on F1, Precision, and Recall,       k
 > Precision: .7468, Precall: .6346, F1: .6862
 ## Ethical Considerations
 >This data set was not treated for bias and should not be treated as bias free without further investigation. 
 ## Caveats and Recommendations
-For learing purposes only. This is a large dataset with potential for signifcant insight into the population studied. 
+ This is a large dataset with potential for signifcant insight into the population studied. 

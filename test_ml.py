@@ -34,13 +34,19 @@ def test_prediction_output_type():
     assert isinstance(preds, np.ndarray), "Predictions should be a NumPy array."
 
 
-# TODO: implement the third test. Change the function name and input as needed
-def test_three():
-    """
-    # add description for the third test
-    """
-    # Your code here
-    pass
+def test_compute_model_metrics():
+    #Test that the metrics calculation function returns expected values.
+    X_train = np.random.rand(100, 10)  # 100 samples, 10 features
+    y_train = np.random.randint(0, 2, size=100)  # Binary labels
+    
+    model = train_model(X_train, y_train)
+    preds = model.predict(X_train)
+    precision, recall, fbeta = compute_model_metrics(y_train, preds)
+    
+    # Check that the metrics are within expected ranges
+    assert 0 <= precision <= 1, "Precision should be between 0 and 1."
+    assert 0 <= recall <= 1, "Recall should be between 0 and 1."
+    assert 0 <= fbeta <= 1, "F-beta score should be between 0 and 1."
 """
 import pytest
 import numpy as np
